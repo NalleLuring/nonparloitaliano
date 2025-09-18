@@ -1911,7 +1911,7 @@ figcaption {
 }
 
 .section_-meny {
-  background-color: #000;
+  background-color: var(--base-color-brand--beige);
   background-image: url('../images/background.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
