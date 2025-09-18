@@ -160,7 +160,7 @@ h6 {
 }
 
 p {
-  letter-spacing: .0625rem;
+  letter-spacing: normal;
   margin-bottom: 0;
   line-height: 1.6;
 }
