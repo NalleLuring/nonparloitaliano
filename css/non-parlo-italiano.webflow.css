@@ -1887,6 +1887,15 @@ figcaption {
   inset: auto 2rem 1rem auto;
 }
 
+/* Center the illustration on the menu page (desktop/tablet) */
+.section_-meny .image-6 {
+  position: absolute;
+  inset: 0%;
+  margin: auto;
+  width: min(28vw, 520px);
+  max-height: 70svh;
+}
+
 .img-carusell {
   position: absolute;
   inset: 0%;
@@ -2185,6 +2194,15 @@ figcaption {
 
   .nav_menu {
     flex-flow: column;
+  }
+
+  /* Hide the illustration on the menu page for tablet and below; center buttons */
+  .section_-meny .image-6 {
+    display: none;
+  }
+  .section_-meny .hero_grid {
+    justify-content: center;
+    align-items: center;
   }
 
   .nav_menu.isright {
@@ -2703,6 +2721,15 @@ figcaption {
     position: relative;
     bottom: auto;
     right: auto;
+  }
+
+  /* Ensure menu page keeps illustration hidden and buttons centered on mobile */
+  .section_-meny .image-6 {
+    display: none;
+  }
+  .section_-meny .hero_grid {
+    justify-content: center;
+    align-items: center;
   }
 
   .section_-meny {
