@@ -160,8 +160,9 @@ h6 {
 }
 
 p {
-  letter-spacing: .0625rem;
+  letter-spacing: 0;
   margin-bottom: 0;
+  font-size: .9rem;
   line-height: 1.6;
 }
 
@@ -617,6 +618,7 @@ figcaption {
   text-transform: uppercase;
   margin-bottom: .25rem;
   font-family: Syne, sans-serif;
+  font-size: 1rem;
   font-weight: 700;
 }
 
@@ -1230,6 +1232,8 @@ figcaption {
 }
 
 .button-group.flex-vertical {
+  grid-column-gap: .5rem;
+  grid-row-gap: .5rem;
   text-align: right;
   justify-content: flex-end;
   align-items: flex-end;
@@ -1285,14 +1289,9 @@ figcaption {
   position: relative;
 }
 
-.spacer-xsmall {
+.spacer-xsmall, .spacer-small {
   width: 100%;
   padding-top: .5rem;
-}
-
-.spacer-small {
-  width: 100%;
-  padding-top: 1rem;
 }
 
 .spacer-xhuge {
@@ -2977,7 +2976,7 @@ figcaption {
 }
 
 #w-node-_9c9bd1a7-2a38-55d3-0228-7b4040ecad9d-40ecad7f {
-  grid-area: span 1 / span 2 / span 1 / span 2;
+  grid-area: span 1 / span 1 / span 1 / span 1;
   justify-self: end;
 }
 
