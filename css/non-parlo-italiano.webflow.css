@@ -3346,12 +3346,22 @@ figcaption {
     z-index: 2;
   }
 
-  /* Center content on sub-slides */
+  /* Sub-slides: content centered, Tillbaka pinned to bottom */
   .mobile-slide:not([data-slide="main"]) {
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+  }
+
+  .mobile-slide:not([data-slide="main"]) > :first-child {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .mobile-slide:not([data-slide="main"]) .mobile-slide-back {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
   }
 
   .mobile-chambre-content {
