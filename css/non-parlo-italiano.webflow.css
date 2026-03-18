@@ -3348,12 +3348,7 @@ figcaption {
 
   /* Center content on sub-slides */
   .mobile-slide:not([data-slide="main"]) {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .mobile-slide[data-slide="chambre"] {
+    flex: 1;
     justify-content: center;
     align-items: center;
     text-align: center;
