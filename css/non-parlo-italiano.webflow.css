@@ -3274,7 +3274,7 @@ figcaption {
   .hero_grid {
     flex: 1;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     justify-items: center;
     padding-top: 1rem;
@@ -3285,7 +3285,8 @@ figcaption {
     width: auto;
     max-width: 55vw;
     max-height: 40svh;
-    margin: 0;
+    margin-top: auto;
+    margin-bottom: auto;
     position: relative;
     bottom: auto;
     right: auto;
