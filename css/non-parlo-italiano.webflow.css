@@ -2727,8 +2727,8 @@ figcaption {
   .image-6 {
     width: auto;
     max-width: 70vw;
-    max-height: 50svh;
-    margin-top: 4rem;
+    max-height: 45svh;
+    margin-top: auto;
     margin-bottom: auto;
     position: relative;
     bottom: auto;
@@ -3176,8 +3176,8 @@ figcaption {
   text-align: center;
 }
 
-/* Override Webflow's 991px tablet breakpoint — keep desktop layout down to 767px */
-@media screen and (max-width: 991px) and (min-width: 768px) {
+/* Override Webflow's 991px tablet breakpoint — keep desktop layout down to 900px */
+@media screen and (max-width: 991px) and (min-width: 900px) {
   .nav_component.padding-global {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -3235,10 +3235,48 @@ figcaption {
   }
 }
 
+/* At 768-899px: Webflow hides nav buttons — keep them hidden, show mobile slides instead */
+/* (no override needed — Webflow's tablet rules + show-tablet handle this) */
+
 /* Hide standalone chambre section on mobile — shown via slide panel instead */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 899px) {
   #chambre-separee {
     display: none;
+  }
+
+  /* Nav: center logo, hide grid columns */
+  .nav_component.padding-global {
+    display: flex;
+    justify-content: center;
+  }
+
+  .left-navbar,
+  .right-navbar {
+    display: none;
+  }
+
+  .image-5.max-width-small {
+    max-width: 80vw;
+  }
+
+  /* Hero layout for mobile — flexbox column centered */
+  .hero_grid {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .image-6 {
+    width: auto;
+    max-width: 70vw;
+    max-height: 45svh;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    bottom: auto;
+    right: auto;
   }
 
   .section:first-child {
@@ -3246,6 +3284,11 @@ figcaption {
     min-height: 0;
     overflow: hidden;
     position: relative;
+  }
+
+  /* Hide desktop nav buttons */
+  .button.is-secondary {
+    display: none !important;
   }
 
   .mobile-slides {
