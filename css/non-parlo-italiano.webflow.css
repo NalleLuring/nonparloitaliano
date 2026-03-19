@@ -1761,7 +1761,7 @@ figcaption {
   flex-flow: column;
   flex: 1;
   grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 14rem) minmax(0, 14rem) minmax(0, 14rem) 1fr;
   grid-auto-columns: 1fr;
   place-items: start stretch;
   display: grid;
@@ -2727,7 +2727,7 @@ figcaption {
   .image-6 {
     width: auto;
     max-width: 70vw;
-    max-height: 60svh;
+    max-height: 45svh;
     margin-top: auto;
     margin-bottom: auto;
     position: relative;
@@ -2978,6 +2978,7 @@ figcaption {
 #w-node-_9c9bd1a7-2a38-55d3-0228-7b4040ecad9d-40ecad7f {
   grid-area: span 1 / span 1 / span 1 / span 1;
   justify-self: end;
+  text-align: right;
 }
 
 #w-node-baa85b40-fd78-c50a-db9d-d592ba96cb2f-ba96cb2e {
@@ -3060,6 +3061,345 @@ figcaption {
 @media screen and (max-width: 767px) {
   #w-node-b5a3dbf3-c43e-62dd-c852-092e39842322-ba96cb2e {
     grid-column: span 3 / span 3;
+  }
+}
+
+/* ---- Menyer dropdown (desktop) ---- */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: Syne, sans-serif;
+  font-size: .9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: var(--base-color-neutral--white);
+  padding: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+}
+
+.dropdown-chevron {
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown.open .dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background-color: var(--base-color-neutral--white);
+  border: .09375rem solid var(--base-color-neutral--black);
+  border-radius: .375rem;
+  padding: .5rem 0;
+  z-index: 1000;
+  min-width: 9rem;
+}
+
+.nav-dropdown.open .nav-dropdown-menu {
+  display: block;
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: .6rem 1.25rem;
+  color: var(--base-color-neutral--black);
+  text-decoration: none;
+  font-family: Syne, sans-serif;
+  font-size: .875em;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.nav-dropdown-item:hover {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+/* ---- Mobile slide navigation ---- */
+.mobile-slides {
+  position: relative;
+  width: 100%;
+  max-width: 20rem;
+}
+
+.mobile-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1rem;
+  width: 100%;
+}
+
+.mobile-slide.active {
+  display: flex;
+}
+
+.mobile-slide-back,
+.mobile-slide-back-placeholder {
+  font-family: Syne, sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  align-self: center;
+}
+
+.mobile-slide-back {
+  background: none;
+  border: none;
+  color: var(--base-color-neutral--white);
+  cursor: pointer;
+}
+
+.mobile-slide-back-placeholder {
+  visibility: hidden;
+}
+
+/* ---- Chambre Séparée overlay ---- */
+.chambre-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.chambre-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chambre-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.chambre-overlay-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.chambre-overlay-close {
+  background: none;
+  border: none;
+  color: var(--base-color-neutral--white);
+  font-family: Syne, sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+.chambre-toggle {
+  cursor: pointer;
+}
+
+/* ---- Chambre Séparée content section ---- */
+.chambre-content {
+  max-width: 32rem;
+  color: var(--base-color-neutral--white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chambre-content a {
+  color: var(--base-color-neutral--white);
+}
+
+.mobile-chambre-content {
+  text-align: center;
+}
+
+/* Override Webflow's 991px tablet breakpoint — keep desktop layout down to 900px */
+@media screen and (max-width: 991px) and (min-width: 900px) {
+  .nav_component.padding-global {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .nav_brand {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .nav_menu {
+    display: none;
+  }
+
+  .nav_menu.isright {
+    flex-flow: row;
+  }
+
+  .hero_grid {
+    grid-auto-columns: auto;
+  }
+
+  .left-navbar {
+    flex-flow: row;
+  }
+
+  .bildspel {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Keep mobile-slides hidden on tablet — show desktop nav instead */
+  .show-tablet {
+    display: none !important;
+  }
+
+  /* Keep nav buttons visible on tablet */
+  .button.is-secondary {
+    display: inline-block !important;
+  }
+
+  /* Keep Boka button visible on tablet */
+  .hide-tablet {
+    display: inline-block !important;
+  }
+
+  /* Keep hero content like desktop */
+  .hero_content {
+    align-items: center;
+  }
+}
+
+/* At 768-899px: Webflow hides nav buttons — keep them hidden, show mobile slides instead */
+/* (no override needed — Webflow's tablet rules + show-tablet handle this) */
+
+/* Mobile layout */
+@media screen and (max-width: 899px) {
+  /* Nav: center logo, hide grid columns */
+  .nav_component.padding-global {
+    display: flex;
+    justify-content: center;
+  }
+
+  .left-navbar,
+  .right-navbar {
+    display: none;
+  }
+
+  .image-5.max-width-small {
+    max-width: 80vw;
+  }
+
+  /* Hero layout for mobile — logo top, gubbe center, buttons bottom */
+  .hero_grid {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    justify-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .image-6 {
+    width: auto;
+    max-width: 55vw;
+    max-height: 40svh;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    bottom: auto;
+    right: auto;
+  }
+
+  .section:first-child {
+    height: 100svh;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Hide desktop nav buttons */
+  .button.is-secondary {
+    display: none !important;
+  }
+
+  .mobile-slides {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    max-width: 20rem;
+  }
+
+  .mobile-slide {
+    justify-content: flex-end;
+    padding-bottom: 0;
+  }
+
+  .hero_grid.sub-slide-active .image-6 {
+    display: none;
+  }
+
+  .hero_grid.sub-slide-active .mobile-slides {
+    flex: 1;
+    align-items: center;
+  }
+
+  /* Dark overlay on sub-slides */
+  .section:first-child::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .section:first-child:has(.hero_grid.sub-slide-active)::after {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .section:first-child .padding-global {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Sub-slides: content + tillbaka centered together */
+  .mobile-slide:not([data-slide="main"]) {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mobile-chambre-content {
+    overflow-y: auto;
+    flex: 0 1 auto;
+    min-height: 0;
   }
 }
 
