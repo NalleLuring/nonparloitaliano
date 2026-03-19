@@ -3169,6 +3169,56 @@ figcaption {
   visibility: hidden;
 }
 
+/* ---- Chambre Séparée overlay ---- */
+.chambre-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.chambre-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.chambre-overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.chambre-overlay-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+.chambre-overlay-close {
+  background: none;
+  border: none;
+  color: var(--base-color-neutral--white);
+  font-family: Syne, sans-serif;
+  font-size: .875rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  cursor: pointer;
+  padding: .5rem 1rem;
+}
+
+.chambre-toggle {
+  cursor: pointer;
+}
+
 /* ---- Chambre Séparée content section ---- */
 .chambre-content {
   max-width: 32rem;
@@ -3235,11 +3285,6 @@ figcaption {
     display: inline-block !important;
   }
 
-  /* Keep chambre section visible on tablet */
-  #chambre-separee {
-    display: block !important;
-  }
-
   /* Keep hero content like desktop */
   .hero_content {
     align-items: center;
@@ -3249,12 +3294,8 @@ figcaption {
 /* At 768-899px: Webflow hides nav buttons — keep them hidden, show mobile slides instead */
 /* (no override needed — Webflow's tablet rules + show-tablet handle this) */
 
-/* Hide standalone chambre section on mobile — shown via slide panel instead */
+/* Mobile layout */
 @media screen and (max-width: 899px) {
-  #chambre-separee {
-    display: none;
-  }
-
   /* Nav: center logo, hide grid columns */
   .nav_component.padding-global {
     display: flex;

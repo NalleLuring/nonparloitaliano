@@ -203,7 +203,7 @@ margin: 0rem !important;
               <a href="documents/NonParlo_Dinner.pdf" target="_blank" class="nav-dropdown-item">Middag</a>
             </div>
           </div>
-          <a href="#chambre-separee" class="button is-secondary w-button">Chambre Séparée</a>
+          <button class="button is-secondary w-button chambre-toggle">Chambre Séparée</button>
         </div>
         <a id="w-node-b5a3dbf3-c43e-62dd-c852-092e39842322-ba96cb2e" href="index.html" aria-current="page" class="w-inline-block w--current"><img src="images/logo_1.svg" loading="lazy" alt="logo av Ta&#x27;ameya Falafel" class="image-5 max-width-small"></a>
         <div id="w-node-baa85b40-fd78-c50a-db9d-d592ba96cb35-ba96cb2e" class="right-navbar">
@@ -309,19 +309,19 @@ margin: 0rem !important;
         </div>
       </section>
     </main>
-    <section id="chambre-separee" class="section chambre">
-      <div class="padding-global">
-        <div class="container-large">
-          <div class="chambre-content">
-            <p class="text-style-allcaps heading-style-h3">Chambre Séparée</p>
-            <p>Vi har flera olika chambre séparée i varierande storlekar, vilket gör att vi kan ta emot både mindre sällskap och större grupper i en mer privat miljö.</p>
-            <p>För större tillställningar har vi möjlighet att arrangera chambre för upp till 50-60 personer, samtidigt som vi även erbjuder flera mindre rum för mer intima middagar, möten eller firanden.</p>
-            <p>Det gör att vi kan anpassa upplägget efter allt från mindre grupper till större sällskap.</p>
-            <p>Kontakta oss på <a href="mailto:hello@nonparloitaliano.se">hello@nonparloitaliano.se</a> eller tel:<a href="tel:07047824 74">070 478 24 74</a></p>
-          </div>
+    <div id="chambre-separee" class="chambre-overlay">
+      <div class="chambre-overlay-backdrop"></div>
+      <div class="chambre-overlay-content">
+        <div class="chambre-content">
+          <p class="text-style-allcaps heading-style-h3">Chambre Séparée</p>
+          <p>Vi har flera olika chambre séparée i varierande storlekar, vilket gör att vi kan ta emot både mindre sällskap och större grupper i en mer privat miljö.</p>
+          <p>För större tillställningar har vi möjlighet att arrangera chambre för upp till 50-60 personer, samtidigt som vi även erbjuder flera mindre rum för mer intima middagar, möten eller firanden.</p>
+          <p>Det gör att vi kan anpassa upplägget efter allt från mindre grupper till större sällskap.</p>
+          <p>Kontakta oss på <a href="mailto:hello@nonparloitaliano.se">hello@nonparloitaliano.se</a> eller tel:<a href="tel:07047824 74">070 478 24 74</a></p>
         </div>
+        <button class="chambre-overlay-close text-style-allcaps">Stäng</button>
       </div>
-    </section>
+    </div>
   </div>
   <div class="section_footers">
     <div class="padding-global padding-section-small">
@@ -376,6 +376,23 @@ margin: 0rem !important;
       });
       document.addEventListener('click', function() {
         dropdown.classList.remove('open');
+      });
+    }
+
+    // Chambre Séparée overlay (desktop)
+    var chambreOverlay = document.getElementById('chambre-separee');
+    document.querySelectorAll('.chambre-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        chambreOverlay.classList.add('open');
+      });
+    });
+    if (chambreOverlay) {
+      chambreOverlay.querySelector('.chambre-overlay-close').addEventListener('click', function() {
+        chambreOverlay.classList.remove('open');
+      });
+      chambreOverlay.querySelector('.chambre-overlay-backdrop').addEventListener('click', function() {
+        chambreOverlay.classList.remove('open');
       });
     }
 
